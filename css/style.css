@@ -1,0 +1,184 @@
+//div, input, span, button { border: 1px solid red; }
+.input-txt {
+     position: relative;
+     border: solid;
+}
+.input-txt input {
+     position: relative;
+     width: 100%;
+     padding-right: 60px;
+     border-width: 0px;
+}
+.input-txt.on {
+     border-color: red;
+}
+.input-txt .count {
+     position: absolute;
+     top: 0;
+     right: 0;
+     width: 40px;
+     height: 100%;
+     text-align: right;
+     padding-right: 5px;
+}
+.input-txt .clear {
+     position: absolute;
+     top: 0;
+     right: 40px;
+     width: 20px;
+     height: 100%;
+     border: none;
+}
+
+.layer-pop {
+    display:inline-block;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:101;
+}
+.layer-pop .layer-cnt {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:#fff;
+    z-index:101;
+}
+.layer-pop .layer-top {
+    position:absolute;
+    width:100%;
+    height:5rem;
+    border-bottom:1px solid #f0f0f0;
+    padding:1.1rem 4rem 1rem;
+    text-align:center;
+    background:#fff;
+    box-sizing:border-box;
+    z-index:1
+}
+.layer-pop .layer-top .btn-reset, .layer-pop .layer-top .btn-confirm, .layer-pop .layer-top .btn-right-side {
+    position:absolute;
+    right:0px;
+    top:50%;
+    margin-top:-1.9rem;
+    z-index:1;
+}
+.layer-pop .layer-top .title {
+    display:inline-block;
+    line-height:2.5rem;
+    font-weight:normal;
+    font-size:1.7rem;
+}
+.layer-pop .btn-close {
+    position:absolute;
+    top:1.2rem;
+    left:1.9rem;
+    width:2.4rem;
+    height:2.4rem;
+    padding:.3rem;
+    background:url("/images/mobile/ico_layer-close.png") no-repeat center center / 1.7rem auto;
+    box-sizing:border-box;
+    text-indent:-9999px;
+    z-index:1
+}
+.layer-pop .scroll-box {
+    padding:5rem 0px 4.8rem;
+    overflow:auto;
+    width:100%;
+    height:100%;
+    background:#fff;
+    box-sizing:border-box
+}
+.layer-pop .scroll-box.type02 {
+    padding-left:5%;
+    padding-right:5%;
+}
+.layer-pop .layer-btnbox {
+    position:absolute;
+    width:100%;
+    height:4.8rem;
+    left:0;
+    bottom:0;
+}
+.layer-pop .layer-btnbox:after {
+    display:block;
+    content:'';
+    clear:both;
+}
+.layer-pop .layer-btnbox > span {
+    float:left;
+    width:50%;
+}
+.layer-pop .layer-btnbox .btn-l {
+    border:none;
+    width:100%;
+    height:100%;
+}
+.layer-pop.basic .layer-cnt {
+    width:90%;
+    left:50%;
+    margin-left:-45%;
+    height:auto
+}
+.layer-pop.basic .layer-top , .layer-pop.basic .layer-btnbox {
+    position:static
+}
+.layer-pop.basic .layer-top {
+    padding:2rem 0 0 2rem;
+    border-bottom:none;
+    text-align:left;
+    line-height:2.5rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: #2062b7;
+}
+.layer-pop.basic .layer-mid {
+    padding:0 2rem 4.2rem;
+    background:#fff
+}
+.layer-pop.basic .layer-btnbox .btn-xl {
+    width:100%;
+    height:4.8rem;
+    line-height:3.8rem;
+    font-size:1.5rem;
+    border:none;
+    border-radius:0;
+}
+.layer-pop.basic .main-txt {
+    margin-top:2.7rem;
+    letter-spacing: -0.58px;
+    line-height:2rem;
+    font-size: 1.4rem;
+    color: #000;
+}
+.layer-pop.basic .sub-txt {
+    margin-top:.6rem;
+    line-height:1.9rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.54px;
+    color: #959595;
+}
+.btn-gray {
+    border-color:#c1c3c6;
+    background-color:#a9acaf;
+    color:#fff
+}
+button.btn-gray:active {
+    border-color:#a9acaf;
+    background-color: #a9acaf;
+    opacity:1
+}
+.btn-light-blue {
+    border-color: #2062b7;
+    background-color: #2062b7;
+    color: #fff;
+}
+button.btn-light-blue:active {
+    border-color: #1b539a;
+    background-color: #1b539a;
+    opacity: 1
+}

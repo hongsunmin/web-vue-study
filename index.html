@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>Vue Component Page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script src="js/log.js"></script>
+    <script src="app-layout.js"></script>
+    <script src="vue-component.js"></script>
+  </head>
+  <body>
+    <app-layout id="app">
+      <h1 slot="header">Header</h1>
+
+      <p>{{ message }}</p>
+      <countable-input id="id" base-class="input-txt" focused-class="on" clear-class="clear"
+          count-class="count" v-model="userId" max-length="10"></countable-input>
+      <countable-input id="password" base-class="input-txt" focused-class="on" clear-class="clear"
+          count-class="count" v-model="userPassword" max-length="10"></countable-input>
+      <check-input id="chk-onoff1" v-model="isUseBiometriryLogin" head-label="생체인식 로그인 사용여부"></countable-input>
+
+      <button v-on:click="openPopup">팝업 열기</button>
+
+      <p slot="footer">Footer</p>
+
+      <popup-layout popup-class="layer-pop basic" content-class="layer-cnt" head-class="layer-top"
+          body-class="layer-mid" bottom-class="layer-btnbox" v-on:click="popupClicked" ref="popup">
+        <template v-slot:title>
+          <h2>디바이스 내 생체정보 등록</h2>
+        </template>
+
+        <template v-slot:body>
+          <div class="main-txt">디바이스 &gt; 설정 내 생체정보를 등록해주세요.</div>
+          <div class="sub-txt">생체정보가 필수로 등록되어야<br>생체인식 로그인을 사용할 수 있습니다.</div>
+        </template>
+
+        <span slot="negative"><button type="button" class="btn-xl btn-gray">취소</button></span>
+        <span slot="positive"><button type="button" class="btn-xl btn-light-blue">확인</button></span>
+      </popup-layout>
+
+    </app-layout>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data:{
+        	userId: '',
+        	userPassword: '',
+        	isUseBiometriryLogin: false,
+          message : 'Hello Vue.js!'
+        },
+        created: function () {
+        	log('');
+        },
+        mounted: function () {
+          log('');
+        },
+        beforeUpdate: function () {
+          log('');
+        },
+        updated: function () {
+          log('');
+        },
+        methods: {
+          openPopup: function () {
+            this.$refs.popup.open();
+          },
+          popupClicked: function (event, slotName) {
+            log(JSON.stringify(event.target) + ' ' + slotName);
+            this.$refs.popup.close();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

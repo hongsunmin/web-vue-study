@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"></meta>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="promise1">Fire promise</button>
+			<button @click="promise3">async</button>
+			<button @click="promise2">async/await</button>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data:{
+				text: '',
+				message : 'Hello Vue.js!'
+			},
+			created: function() {
+				console.log('created.');
+			},
+			methods: {
+				promise1: function() {
+					var _promise = function(param) {
+						return new Promise(function(resolve, reject) {
+							window.setTimeout(function() {
+								if (param) {
+									resolve("해결 완료");
+								} else {
+									reject("실패!!!");
+								}
+							}, 3000);
+						});
+					};
+					
+					_promise(false)
+						.then(function(text) {
+							console.log(text);
+							alert(text);
+						}, function(error) {
+							console.error(error);
+							alert("Error=>" + error);
+						});
+					alert("start.");
+				},
+				promise2: async function() {
+					var resultItems = await this.fetchItems();
+					alert(resultItems);
+				},
+				fetchItems: function() {
+					return new Promise(function(resolve, reject) {
+						setTimeout(function() {
+							var items = [1,2,3];
+							resolve(items)
+						}, 3000);
+					});
+				},
+				promise3: function() {
+					var _promise = async function(param) {
+						if (!param)  { throw new Error("실패!!!") }
+						return "해결 완료";
+					};
+					
+					_promise(false)
+						.then(function(text) {
+							console.log(text);
+							alert(text);
+						}, function(error) {
+							console.error(error);
+							alert("Error=>" + error);
+						});
+					alert("start.");
+				},
+			}
+		});
+	</script>
+</html>
